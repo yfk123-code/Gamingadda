@@ -1,5 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head><title>My AI Game Portal</title></head>
-<body><h1>Welcome to My Gaming Site</h1><p>Games coming soon!</p></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousuf AI Games | Play & Earn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: white; font-family: 'Inter', sans-serif; }
+        .game-card:hover { transform: translateY(-5px); transition: 0.3s; border-color: #3b82f6; }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <nav class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900 sticky top-0 z-50">
+        <h1 class="text-2xl font-bold gradient-text">YousufGames</h1>
+        <div class="space-x-4">
+            <a href="#" class="hover:text-blue-400">Home</a>
+            <a href="#games" class="hover:text-blue-400">All Games</a>
+        </div>
+    </nav>
+
+    <header class="text-center py-16 px-4">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Unlimited Free <span class="text-blue-500">HTML5 Games</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Play high-quality games directly in your browser. No downloads required!</p>
+    </header>
+
+    <main id="games" class="container mx-auto px-4 pb-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            
+            <div class="game-card bg-gray-800 border border-gray-700 rounded-xl overflow-hidden cursor-pointer shadow-lg" onclick="openGame('GAME_URL_HERE')">
+                <img src="https://via.placeholder.com/300x200" alt="Game Thumbnail" class="w-full h-40 object-cover">
+                <div class="p-3">
+                    <h3 class="font-bold text-sm truncate">Super Action Game</h3>
+                    <p class="text-xs text-blue-400 mt-1"><i class="fas fa-play mr-1"></i> Play Now</p>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <div id="gameModal" class="fixed inset-0 bg-black bg-opacity-95 hidden z-[100] flex flex-col">
+        <div class="p-4 flex justify-between items-center border-b border-gray-800">
+            <span class="font-bold">Now Playing...</span>
+            <button onclick="closeGame()" class="text-2xl">&times;</button>
+        </div>
+        <iframe id="gameFrame" src="" class="w-full h-full border-none"></iframe>
+    </nav>
+
+    <script>
+        function openGame(url) {
+            document.getElementById('gameFrame').src = url;
+            document.getElementById('gameModal').classList.remove('hidden');
+        }
+        function closeGame() {
+            document.getElementById('gameFrame').src = "";
+            document.getElementById('gameModal').classList.add('hidden');
+        }
+    </script>
+</body>
 </html>
